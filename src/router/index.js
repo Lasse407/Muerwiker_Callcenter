@@ -6,6 +6,7 @@ import Management from "@/views/Management.vue";
 import Shuttle from "@/views/Shuttle.vue";
 import Administration from "@/views/Administration/Administration.vue";
 import Contacts from "@/views/Administration/Contacts.vue";
+import Daycare from "@/views/Daycare.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/ansprechpartner',
       name: 'contacts',
       component: Contacts
+    },
+    {
+      path: '/tafo',
+      name: 'daycare',
+      component: Daycare
     }
   ]
 })

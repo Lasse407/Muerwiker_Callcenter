@@ -5,19 +5,11 @@
     <div class="col--1-of-3 centered header">Callcenter</div>
     <div class="col--1-of-3 right"></div>
   </div>
-  <router-link to="/">
-    <img src="@/assets/arrow-left.svg" class="mainImg"/>
-  </router-link>
-  <work-table/>
 </template>
 
 <script>
-import WorkTable from "@/components/WorkTable.vue";
-
 export default {
-  name: "Work",
-  components: {WorkTable}
-
+  name: "Daycare"
 }
 </script>
 
