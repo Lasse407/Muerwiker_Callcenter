@@ -1,8 +1,24 @@
 <template>
-  <p>{{ nudel  }}</p>
-  <div v-for="(item,index) in workData.arbeitsstaetten" :key="index">
-    {{item.strasse}}
+  <div v-for="(item,index) in getCities()" :key="index">
+    <p  @click="selectedCity = item" style="background-color: lightblue; margin: 4px">{{item}}</p>
   </div>
+  <p>-----------------------------------------------------------------</p>
+  <span v-if="selectedCity!= ''">
+    <div v-for="(item, index) in getAddresses()" :key="index" style="background-color: lightblue; margin: 4px">
+      <div @click="selectedAddress = item.id">
+    <p>{{item.strasse}}</p>
+    <p>{{item.hausnummer}}</p>
+    <p>{{item.abteilungen}}</p>
+</div>
+</div>
+  </span>
+  <p>-----------------------------------------------------------------</p>
+  <span v-if="selectedAddress!= ''">
+    <div v-for="(item, index) in getMitarbeiter()" :key="index" style="background-color: lightblue; margin: 4px">
+    <p>{{item.name}}</p>
+    <p>{{item.nummer}}</p>
+</div>
+  </span>
 </template>
 
 <script>
@@ -11,7 +27,8 @@ export default {
   name: "WorkTable",
   data(){
     return {
-      nudel: "nudelauflauf",
+      selectedCity:"",
+      selectedAddress:"",
       workData:{
        "arbeitsstaetten":[
            {
@@ -27,6 +44,43 @@ export default {
             strasse:"Nudelweg",
             hausnummer:"88",
             abteilungen:"Schleudern, Pumpen"
+          },
+         {
+           id:3,
+           ort:"Niebüll",
+           strasse:"Nordseestraße",
+           hausnummer:"11",
+           abteilungen:"Dies, Das"
+         }
+        ]
+      },
+      contactData:{
+        "mitarbeiter":[
+          {
+            id:1,
+            zuordnungsId:1,
+            name:"Peter Petersen",
+            nummer:"xxx xxx"
+          },{
+            id:2,
+            zuordnungsId:1,
+            name:"Hans Hansen",
+            nummer:"xxx xxx"
+          },{
+            id:3,
+            zuordnungsId:2,
+            name:"Johann Johannsen",
+            nummer:"xxx xxx"
+          },{
+            id:4,
+            zuordnungsId:2,
+            name:"Erich Erichsen",
+            nummer:"xxx xxx"
+          },{
+            id:5,
+            zuordnungsId:3,
+            name:"Michel Michelsen",
+            nummer:"xxx xxx"
           }
         ]
       }
@@ -36,7 +90,43 @@ export default {
       console.log(this.workData.arbeitsstaetten);
   },
   methods:{
+    write(){
+      console.log("writing -------------------")
+    },
+    getCities(){
+      var resArr = [];
+      this.workData.arbeitsstaetten.forEach((element) => {
 
+        if(!resArr.includes(element.ort)){
+
+          resArr.push(element.ort)
+
+        }
+      })
+      return resArr;
+    },
+    getAddresses(){
+      var resArr = [];
+      this.workData.arbeitsstaetten.forEach((element) => {
+        if(element.ort == this.selectedCity){
+          resArr.push(element)
+          console.log("pushed element:")
+          console.log(element)
+        }
+      })
+      return resArr;
+    },
+    getMitarbeiter(){
+      var resArr = [];
+      this.contactData.mitarbeiter.forEach((element) => {
+        if(element.zuordnungsId == this.selectedAddress){
+          resArr.push(element)
+          console.log("pushed element:")
+          console.log(element)
+        }
+      })
+      return resArr;
+    }
   }
 }
 </script>
