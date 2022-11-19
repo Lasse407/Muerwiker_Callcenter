@@ -1,7 +1,7 @@
 <template>
   <div style="width: 300px; height: auto; float: left;">
     <div v-for="(item,index) in getCities()" :key="index">
-      <p @click="selectedCity = item" style="background-color: lightblue; margin: 4px; ">{{ item }}</p>
+      <p @click="selectedCity = item, selectedAddress = null" style="background-color: lightblue; margin: 4px; ">{{ item }}</p>
     </div>
   </div>
 
