@@ -1,9 +1,10 @@
-body {
+html,body {
     font-family: Arial, serif;
     color:black;
     line-height: 1.5;
-}
+    height: 100%;
 
+}
 
 h1 {
     color:white;
@@ -61,6 +62,11 @@ h1 {
     padding-right: 2rem;
 }
 
+.negative {
+    -webkit-filter: invert(1);
+    filter: invert(1);
+}
+
 .topBar{
     display:flex;
     justify-content: space-evenly;
@@ -83,4 +89,39 @@ h1 {
 a {
     color: black;
     text-decoration: none; /* no underline */
+}
+.mailLink {
+    color: white;
+    text-decoration: none; /* no underline */
+}
+
+.blockicon{
+    align-content: center;
+    width: 128px;
+}
+.block{
+    float:left;
+    width: 25%;
+    margin-left: 8px;
+}
+.blockHead{
+    background: darkblue;
+    color: white;
+    font-size: 36px;
+    border-bottom-width: 5px;
+    border-bottom-color: orange;
+    border-bottom-style: solid;
+    padding: 8px;
+}
+.blockElement{
+    background: darkblue;
+    color: white;
+    font-size: 28px;
+    border-width: 5px;
+    border-color:orange;
+    padding: 16px;
+    border-bottom-style: solid;
+    border-bottom-color: orange;
+    border-bottom-width: 1px;
+
 }

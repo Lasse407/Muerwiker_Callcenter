@@ -1,31 +1,41 @@
 <template>
-  <div style="width: 300px; height: auto; float: left;">
-    <div v-for="(item,index) in getCities()" :key="index">
-      <p @click="selectedCity = item, selectedAddress = null" style="background-color: lightblue; margin: 4px; ">{{ item }}</p>
+  <div class="block">
+    <img src="../assets/briefcase.svg" alt="Stadt" class="blockicon"/>
+    <img src="../assets/city-variant.svg" alt="Stadt" class="blockicon"/>
+    <h1 class="blockHead">Ort</h1>
+    <div v-for="(item,index) in getCities()" :key="index" class="blockElement">
+      <p @click="selectedCity = item, selectedAddress = null" >
+        {{ item }}</p>
     </div>
   </div>
 
-  <span v-if="selectedCity!= ''">
-      <div style="width: 300px; height: auto; float: left;">
-    <div v-for="(item, index) in getAddresses()" :key="index"
-         style="background-color: lightblue; margin: 4px; width: 300px; height: auto; float: left;">
-      <div @click="selectedAddress = item.id">
-    <p>{{ item.strasse }}</p>
-    <p>{{ item.hausnummer }}</p>
-    <p>{{ item.abteilungen }}</p>
-</div>
-    </div>
-</div>
-  </span>
-  <span v-if="selectedAddress!= ''">
-          <div style="width: 300px; height: auto; float: left;">
+  <div v-if="selectedCity!= ''" class="block">
+    <img src="../assets/routes.svg" alt="Stadt" class="blockicon"/>
 
-    <div v-for="(item, index) in getMitarbeiter()" :key="index"
-         style="background-color: lightblue; margin: 4px; width: 300px; height: auto; float: left;">
+    <h1 class="blockHead">Adresse</h1>
+      <div >
+        <div v-for="(item, index) in getAddresses()" :key="index" class="blockElement">
+          <div @click="selectedAddress = item.id">
+            <p>{{ item.strasse }} {{ item.hausnummer }}</p>
+              <p>{{ item.abteilungen }}</p>
+          </div>
+        </div>
+      </div>
+  </div>
+  <span v-if="selectedAddress!= ''" class="block" style="width: 48%">
+    <img src="../assets/account.svg" alt="Stadt" class="blockicon"/>
+
+    <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement">
     <p>{{ item.name }}</p>
-    <p>{{ item.nummer }}</p>
+      <p>
+        <img src="../assets/phone.svg" alt="PhoneImage" style="width: 24px;height: 24px" class="negative"/>
+          {{ item.nummer }}
+      </p>
+        <a class="mailLink" href="mailto:{{item.mail}}?subject=Anruf&body=Guten Tag, es wurde für Sie angerufen">
+          <img src="../assets/email-outline.svg" alt="MailImage" style="width: 24px;height: 24px" class="negative"/>
+          {{ item.mail }}
+        </a>
     </div>
-</div>
   </span>
 </template>
 
@@ -68,27 +78,32 @@ export default {
             id: 1,
             zuordnungsId: 1,
             name: "Peter Petersen",
-            nummer: "xxx xxx"
+            nummer: "0123 45678998",
+            mail: "Test.Mail@mail.com"
           }, {
             id: 2,
             zuordnungsId: 1,
             name: "Hans Hansen",
-            nummer: "xxx xxx"
+            nummer: "0123 45678998",
+            mail: "Test.Mail@mail.com"
           }, {
             id: 3,
             zuordnungsId: 2,
             name: "Johann Johannsen",
-            nummer: "xxx xxx"
+            nummer: "0123 45678998",
+            mail: "Test.Mail@mail.com"
           }, {
             id: 4,
             zuordnungsId: 2,
             name: "Erich Erichsen",
-            nummer: "xxx xxx"
+            nummer: "0123 45678998",
+            mail: "Test.Mail@mail.com"
           }, {
             id: 5,
             zuordnungsId: 3,
             name: "Michel Michelsen",
-            nummer: "xxx xxx"
+            nummer: "0123 45678998",
+            mail: "Test.Mail@mail.com"
           }
         ]
       }
