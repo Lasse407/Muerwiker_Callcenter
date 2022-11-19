@@ -52,7 +52,7 @@ export default {
           {
             id: 1,
             ort: "Flensburg",
-            strasse: "testStraße",
+            strasse: "Teststraße",
             hausnummer: "69",
             abteilungen: "Holz, Metall"
           },
@@ -79,31 +79,31 @@ export default {
             zuordnungsId: 1,
             name: "Peter Petersen",
             nummer: "0123 45678998",
-            mail: "Test.Mail@mail.com"
+            mail: "test.mail@mail.com"
           }, {
             id: 2,
             zuordnungsId: 1,
             name: "Hans Hansen",
             nummer: "0123 45678998",
-            mail: "Test.Mail@mail.com"
+            mail: "test.mail@mail.com"
           }, {
             id: 3,
             zuordnungsId: 2,
             name: "Johann Johannsen",
             nummer: "0123 45678998",
-            mail: "Test.Mail@mail.com"
+            mail: "test.mail@mail.com"
           }, {
             id: 4,
             zuordnungsId: 2,
             name: "Erich Erichsen",
             nummer: "0123 45678998",
-            mail: "Test.Mail@mail.com"
+            mail: "test.mail@mail.com"
           }, {
             id: 5,
             zuordnungsId: 3,
             name: "Michel Michelsen",
             nummer: "0123 45678998",
-            mail: "Test.Mail@mail.com"
+            mail: "test.mail@mail.com"
           }
         ]
       }

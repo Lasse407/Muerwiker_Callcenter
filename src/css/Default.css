@@ -17,7 +17,7 @@ h1 {
     margin: 16px;
 }
 .mainBox{
-    width:200px;
+    width:250px;
     height:200px;
     font-size: 24px;
     border-style: solid;
@@ -31,7 +31,7 @@ h1 {
     align-content: center;
 }
 .mainImg{
-    width: 120px;
+    width: 150px;
     display: flex;
     justify-content: center;
     align-content: center;

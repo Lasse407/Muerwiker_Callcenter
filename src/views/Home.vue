@@ -10,7 +10,7 @@
       </router-link>
     </div>
   </div>
-    <div class="h2">Suche</div>
+    <div class="h2"><img src="../assets/magnify.svg" class="blockicon">Suche</div>
   <div style=" display: flex;justify-content: center">
 
   <div class="mainBox">
