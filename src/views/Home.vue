@@ -10,7 +10,7 @@
       </router-link>
     </div>
   </div>
-    <div class="h2">Mitarbeitersuche</div>
+    <div class="h2">Suche</div>
   <div style=" display: flex;justify-content: center">
 
   <div class="mainBox">
