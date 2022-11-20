@@ -69,6 +69,13 @@ export default {
             strasse: "Nordseestraße",
             hausnummer: "11",
             abteilungen: "Dies, Das"
+          },
+          {
+            id: 4,
+            ort: "ohne Ort",
+            strasse: "Dienststraße",
+            hausnummer: "34",
+            abteilungen: "Begleitender Dienst"
           }
         ]
       },
@@ -102,6 +109,12 @@ export default {
             id: 5,
             zuordnungsId: 3,
             name: "Michel Michelsen",
+            nummer: "0123 45678998",
+            mail: "test.mail@mail.com"
+          }, {
+            id: 6,
+            zuordnungsId: 4,
+            name: "Marie Mariechen",
             nummer: "0123 45678998",
             mail: "test.mail@mail.com"
           }
