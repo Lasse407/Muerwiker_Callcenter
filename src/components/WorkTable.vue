@@ -1,6 +1,6 @@
 <template>
   <div class="block">
-    <img src="../assets/briefcase.svg" alt="Stadt" class="blockicon"/>
+    <img src="../assets/briefcase.svg" alt="Arbeit" class="blockicon"/>
     <img src="../assets/city-variant.svg" alt="Stadt" class="blockicon"/>
     <h1 class="blockHead">Ort</h1>
     <div v-for="(item,index) in getCities()" :key="index" class="blockElement">
@@ -22,9 +22,9 @@
         </div>
       </div>
   </div>
-  <span v-if="selectedAddress!= ''" class="block" style="width: 48%">
-    <img src="../assets/account.svg" alt="Stadt" class="blockicon"/>
+  <span v-if="selectedAddress!= '' && getMitarbeiter() != '' " class="block" style="width: 48%">
 
+    <img src="../assets/account.svg" alt="Account" class="blockicon"/>
     <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement">
     <p>{{ item.name }}</p>
       <p>

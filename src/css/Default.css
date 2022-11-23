@@ -16,6 +16,14 @@ h1 {
     font-size: 36px;
     margin: 16px;
 }
+.mainSearch{
+    justify-content: center;
+    display: flex;
+    color: black;
+    font-size: 32px;
+    margin: 16px;
+    height: 50px;
+}
 .mainBox{
     width:250px;
     height:200px;
@@ -125,3 +133,88 @@ a {
     border-bottom-width: 1px;
 
 }
+
+<!-- TOOLTIP STYLE------------------------------------------------------------------------------------------------- -->
+     .tooltip {
+
+         position: relative;
+         display: inline-block;
+     }
+
+.tooltip .tooltiptext {
+
+    visibility: hidden;
+    width: 300px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 0%;
+    left: 0%;
+    margin-left: -140px;
+    margin-bottom: 200px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+<!-- TOOLTIP IMAGE STYLE------------------------------------------------------------------------------------------- -->
+.tooltipImg {
+
+    position: relative;
+    display: inline-block;
+}
+
+.tooltipImg .tooltipImage {
+
+    visibility: hidden;
+    width: 300px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 0%;
+    left: 0%;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltipImg .tooltipImage::after {
+    content: "";
+    position: absolute;
+    top: 88%;
+    left: 0%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltipImg:hover .tooltipImage {
+    visibility: visible;
+    opacity: 1;
+}
+
