@@ -14,7 +14,7 @@
 
     <h1 class="blockHead">Adresse</h1>
       <div >
-        <div v-for="(item, index) in getAddresses()" :key="index" class="blockElement">
+        <div v-for="(item, index) in getAddresses()" :key="index" class="blockElement" >
           <div @click="selectedAddress = item.id">
             <p>{{ item.strasse }} {{ item.hausnummer }}</p>
               <p>{{ item.abteilungen }}</p>
