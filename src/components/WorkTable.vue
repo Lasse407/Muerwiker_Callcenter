@@ -3,7 +3,7 @@
     <img src="../assets/briefcase.svg" alt="Arbeit" class="blockicon"/>
     <img src="../assets/city-variant.svg" alt="Stadt" class="blockicon"/>
     <h1 class="blockHead">Ort</h1>
-    <div v-for="(item,index) in getCities()" :key="index" class="blockElement">
+    <div v-for="(item,index) in getCities()" :key="index" class="blockElement" >
       <p @click="selectedCity = item, selectedAddress = null" >
         {{ item }}</p>
     </div>
@@ -163,7 +163,8 @@ export default {
         }
       })
       return resArr;
-    }
+    },
+
   }
 }
 </script>
