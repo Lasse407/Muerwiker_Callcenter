@@ -139,6 +139,14 @@ a {
     border-bottom-width: 4px;
 
 }
+.blockElement:hover{
+    filter:brightness(125%);
+}
+.selected{
+    background-color:   #e69100;
+    border-color: #1b3d8f;
+}
+
 .activated{
     color: orange;
 }
