@@ -3,8 +3,8 @@
     <img src="../assets/briefcase.svg" alt="Arbeit" class="blockicon"/>
     <img src="../assets/city-variant.svg" alt="Stadt" class="blockicon"/>
     <h1 class="blockHead">Ort</h1>
-    <div v-for="(item,index) in getCities()" :key="index" class="blockElement" >
-      <p @click="selectedCity = item, selectedAddress = null" >
+    <div v-for="(item,index) in getCities()" :key="index"  >
+      <p @click="selectedCity = item, selectedAddress = null" :class="[selectedCity == item ? 'selected' : ''] " class="blockElement">
         {{ item }}</p>
     </div>
   </div>
@@ -14,8 +14,8 @@
 
     <h1 class="blockHead">Adresse</h1>
       <div >
-        <div v-for="(item, index) in getAddresses()" :key="index" class="blockElement" >
-          <div @click="selectedAddress = item.id">
+        <div v-for="(item, index) in getAddresses()" :key="index" >
+          <div @click="selectedAddress = item.id" :class="[selectedAddress == item.id ? 'selected' : ''] " class="blockElement">
             <p>{{ item.strasse }} {{ item.hausnummer }}</p>
               <p>{{ item.abteilungen }}</p>
           </div>

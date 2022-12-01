@@ -1,15 +1,14 @@
 <template>
 <header-bar/>
-
+<daycare-table/>
 </template>
 
 <script>
-import daycareTable from "@/components/DaycareTable.vue";
-import headerBar from "@/components/HeaderBar.vue";
 import HeaderBar from "@/components/HeaderBar.vue";
+import DaycareTable from "@/components/DaycareTable.vue";
 export default {
   name: "Daycare",
-  components: {HeaderBar}
+  components: {DaycareTable, HeaderBar}
 }
 </script>
 

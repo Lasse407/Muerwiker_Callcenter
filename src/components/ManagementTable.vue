@@ -1,16 +1,17 @@
+
 <template>
   <div v-if="selectedAbteilung == ''" style=" display: flex;justify-content: center">
     <div v-for="(item, index) in data.Abteilungen" >
-      <div class="mainBox blockElement"  >
-        <p @click="selectedAbteilung = item.id">{{item.bezeichnung}}</p>
+      <div class="mainBox blockElement" @click="selectedAbteilung = item" >
+        <p >{{item.bezeichnung}}</p>
       </div>
     </div>
   </div>
 
   <div v-if="selectedAbteilung != ''" class="block" >
     <div v-for="(item, index) in data.Abteilungen" >
-      <div class="blockElement"  >
-        <p @click="selectedAbteilung = item.id">{{item.bezeichnung}}</p>
+      <div >
+        <p @click="selectedAbteilung = item" class="blockElement" :class="[selectedAbteilung == item ? 'selected' : ''] ">{{item.bezeichnung}}</p>
       </div>
     </div>
   </div>
@@ -112,7 +113,7 @@ export default {
     getMitarbeiter(){
       var resArr = [];
       this.data.mitarbeiter.forEach((element) => {
-        if (element.zuordnungsId == this.selectedAbteilung) {
+        if (element.zuordnungsId == this.selectedAbteilung.id) {
           resArr.push(element)
           console.log("pushed element:")
           console.log(element)

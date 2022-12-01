@@ -14,7 +14,7 @@
     </div>
   <div style=" display: flex;justify-content: center">
 
-    <div class="mainBox">
+    <div class="mainBox mainBoxHover">
       <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
@@ -29,7 +29,7 @@
         <p class="centered">Arbeiten</p>
       </router-link>
     </div>
-    <div class="mainBox">
+    <div class="mainBox mainBoxHover">
       <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
@@ -43,7 +43,7 @@
       </router-link>
     </div>
 
-    <div class="mainBox">
+    <div class="mainBox mainBoxHover">
             <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
@@ -56,7 +56,7 @@
       </router-link>
     </div>
 
-    <div class="mainBox">
+    <div class="mainBox mainBoxHover">
             <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
@@ -69,7 +69,7 @@
       </router-link>
     </div>
 
-    <div class="mainBox">
+    <div class="mainBox mainBoxHover">
             <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
