@@ -16,7 +16,16 @@
       <div >
         <div v-for="(item, index) in getAddresses()" :key="index" >
           <div @click="selectedAddress = item.id" :class="[selectedAddress == item.id ? 'selected' : ''] " class="blockElement">
-            <p>{{ item.strasse }} {{ item.hausnummer }}</p>
+            <p>{{ item.strasse }} {{ item.hausnummer }}
+              <span class="tooltipImg" style="float:right; position: relative;">
+              <img src="../assets/camera.svg" alt="MailImage" style="width: 48px;" class="negative"/>
+
+              <span class="tooltipImage">
+                <img src="../assets/Placeholder_view_vector.svg.png" alt="MailImage" style="width: 360px;float:right" class="negative"/>
+
+              </span>
+            </span>
+            </p>
               <p>{{ item.abteilungen }}</p>
           </div>
         </div>
@@ -26,6 +35,7 @@
 
     <img src="../assets/account.svg" alt="Account" class="blockicon"/>
     <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement">
+      <img src="../assets/Avatar.png" alt="Avatar" style="float: left;width: 18%; margin-right: 24px"/>
     <p>{{ item.name }}</p>
       <p>
         <img src="../assets/phone.svg" alt="PhoneImage" style="width: 24px;height: 24px" class="negative"/>

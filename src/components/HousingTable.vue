@@ -3,8 +3,8 @@
     <img src="../assets/home.svg" alt="Wohnen" class="blockicon"/>
     <img src="../assets/city-variant.svg" alt="Stadt" class="blockicon"/>
     <h1 class="blockHead">Ort</h1>
-    <div v-for="(item,index) in getCities()" :key="index" class="blockElement">
-      <p @click="selectedCity = item, selectedAddress = null" >
+    <div v-for="(item,index) in getCities()" :key="index" >
+      <p @click="selectedCity = item, selectedAddress = null" class="blockElement" :class="[selectedCity == item ? 'selected' : '']">
         {{ item }}</p>
     </div>
   </div>
@@ -13,8 +13,8 @@
 
     <h1 class="blockHead">Adresse</h1>
     <div >
-      <div v-for="(item, index) in getAddresses()" :key="index" class="blockElement">
-        <div @click="selectedAddress = item.id">
+      <div v-for="(item, index) in getAddresses()" :key="index" >
+        <div @click="selectedAddress = item.id" :class="[selectedAddress == item.id ? 'selected' : ''] " class="blockElement">
           <p>
             {{ item.strasse }} {{ item.hausnummer }}
             <span class="tooltipImg" style="float:right; position: relative;">
@@ -34,6 +34,7 @@
     <img src="../assets/account.svg" alt="Stadt" class="blockicon"/>
 
     <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement">
+      <img src="../assets/Avatar.png" alt="Avatar" style="float: left;width: 18%; margin-right: 24px"/>
     <p>{{ item.name }}</p>
       <p>
         <img src="../assets/phone.svg" alt="PhoneImage" style="width: 24px;height: 24px" class="negative"/>

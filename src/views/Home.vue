@@ -12,7 +12,7 @@
   </div>
   <div class="mainSearch"><img src="../assets/magnify.svg" >  <input class="mainSearch" v-model="search" placeholder="Suche">
     </div>
-  <div style=" display: flex;justify-content: center">
+  <div style=" display: block;justify-content: center">
 
     <div class="mainBox mainBoxHover">
       <span class="tooltip" style="float:right; position: relative; left: 70%">
