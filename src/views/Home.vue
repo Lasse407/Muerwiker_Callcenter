@@ -18,7 +18,7 @@
       <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
-          Mitarbeiter für Arbeitsplädse
+          Mitarbeiter für den Bereich "Arbeit"
         </span>
       </span>
 
