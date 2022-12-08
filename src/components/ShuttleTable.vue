@@ -24,39 +24,15 @@ export default {
           {
             id: 1,
             zuordnungsId: 1,
-            name: "Peter Petersen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Sebastian Westphal",
+            nummer: "49(160)90750867",
+            mail: "westphal@fds-mail.de"
           }, {
             id: 2,
             zuordnungsId: 1,
-            name: "Hans Hansen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
-          }, {
-            id: 3,
-            zuordnungsId: 2,
-            name: "Johann Johannsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
-          }, {
-            id: 4,
-            zuordnungsId: 2,
-            name: "Erich Erichsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
-          }, {
-            id: 5,
-            zuordnungsId: 3,
-            name: "Michel Michelsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
-          }, {
-            id: 6,
-            zuordnungsId: 4,
-            name: "Marie Mariechen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Olivia Münster",
+            nummer: "49(151)16257288",
+            mail: "muenster@fds-mail.de"
           }
         ]
       }

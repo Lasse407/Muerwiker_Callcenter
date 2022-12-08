@@ -47,21 +47,11 @@ export default {
         "tagesforderstaetten": [
           {
             id: 1,
-            strasse: "Teststraße",
+            strasse: "Raiffeiseinstraße",
           },
           {
             id: 2,
-            strasse: "Nudelweg"
-          },
-          {
-            id: 3,
-            strasse: "Nordseestraße",
-
-          },
-          {
-            id: 4,
-            strasse: "Dienststraße",
-
+            strasse: "Munkbrarup",
           }
         ]
       },
@@ -70,39 +60,15 @@ export default {
           {
             id: 1,
             zuordnungsId: 1,
-            name: "Peter Petersen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Sylvia Bunn",
+            nummer: "49(176)11119272",
+            mail: "bunn@muerwiker-grupp.de"
           }, {
             id: 2,
-            zuordnungsId: 1,
-            name: "Hans Hansen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
-          }, {
-            id: 3,
             zuordnungsId: 2,
-            name: "Johann Johannsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
-          }, {
-            id: 4,
-            zuordnungsId: 2,
-            name: "Erich Erichsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
-          }, {
-            id: 5,
-            zuordnungsId: 3,
-            name: "Michel Michelsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
-          }, {
-            id: 6,
-            zuordnungsId: 4,
-            name: "Marie Mariechen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Sylvia Bunn",
+            nummer: "49(176)11119272",
+            mail: "bunn@muerwiker-grupp.de"
           }
         ]
       }

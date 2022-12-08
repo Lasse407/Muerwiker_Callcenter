@@ -62,30 +62,30 @@ export default {
           {
             id: 1,
             ort: "Flensburg",
-            strasse: "Teststraße",
-            hausnummer: "69",
-            abteilungen: "Holz, Metall"
+            strasse: "Treeneweg",
+            hausnummer: "",
+            abteilungen: "Besen und Bürsten, LebensArt, Verpackung"
           },
           {
             id: 2,
             ort: "Flensburg",
-            strasse: "Nudelweg",
-            hausnummer: "88",
-            abteilungen: "Schleudern, Pumpen"
+            strasse: "Gewerbegrund",
+            hausnummer: "",
+            abteilungen: "Metall, Schlosserei, Verpackung, Montage"
           },
           {
             id: 3,
-            ort: "Niebüll",
-            strasse: "Nordseestraße",
-            hausnummer: "11",
-            abteilungen: "Dies, Das"
+            ort: "Flensburg",
+            strasse: "Raiffeisenstraße",
+            hausnummer: "",
+            abteilungen: "Werkstatt Garten, RabenHolz, Kaminholz, Gartenbau"
           },
           {
             id: 4,
             ort: "ohne Ort",
-            strasse: "Dienststraße",
-            hausnummer: "34",
-            abteilungen: "Begleitender Dienst"
+            strasse: "Bildung und Begleitung",
+            hausnummer: "",
+            abteilungen: "Berufliche Bildung, Schule, Begleitung, Begleitender Dienst, Arbeitsamt, Arbeitsagentur, Ausbildung"
           }
         ]
       },
@@ -94,39 +94,51 @@ export default {
           {
             id: 1,
             zuordnungsId: 1,
-            name: "Peter Petersen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Sandra Bier",
+            nummer: "+49(461)50306249",
+            mail: "bier@muerwiker-gruppe.de"
           }, {
             id: 2,
             zuordnungsId: 1,
-            name: "Hans Hansen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Jan Euhus",
+            nummer: "+49(461)50306714",
+            mail: "euhus@muerwiker-gruppe.de"
           }, {
             id: 3,
             zuordnungsId: 2,
-            name: "Johann Johannsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Jörg Köster",
+            nummer: "+49(461)50306771",
+            mail: "köster@muerwiker-gruppe.de"
           }, {
             id: 4,
             zuordnungsId: 2,
-            name: "Erich Erichsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Kirsten Feddersen",
+            nummer: "+49(461)50306257",
+            mail: "k.feddersen@muerwiker-gruppe.de"
           }, {
             id: 5,
             zuordnungsId: 3,
-            name: "Michel Michelsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Andreas Andresen",
+            nummer: "0176-11119271",
+            mail: "a.andresen@muerwiker-gruppe.de"
           }, {
             id: 6,
+            zuordnungsId: 3,
+            name: "Stefan Ingwertsen",
+            nummer: "0176-11119262",
+            mail: "ingwertsen@muerwiker-gruppe.de"
+          }, {
+            id: 7,
             zuordnungsId: 4,
-            name: "Marie Mariechen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Ulrike Brandt",
+            nummer: "0176-11119252",
+            mail: "u.brandt@muerwiker-gruppe.de"
+          }, {
+            id: 8,
+            zuordnungsId: 4,
+            name: "Timo Petersen",
+            nummer: "49(461)50306303",
+            mail: "timo.petersen@muerwiker-gruppe.de"
           }
         ]
       }

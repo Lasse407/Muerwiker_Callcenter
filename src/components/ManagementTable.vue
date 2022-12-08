@@ -44,67 +44,85 @@ export default {
           {
             id: 1,
             bezeichnung: "Personal",
-            notfallnr: "0123 45678998",
+            notfallnr: "0151-18857333",
           },
           {
             id: 2,
             bezeichnung: "Geschäftsleitung",
-            notfallnr: "0123 45678998",
+            notfallnr: "0151-18857333",
           },
           {
             id: 3,
             bezeichnung: "Finanzen",
-            notfallnr: "0123 45678998",
+            notfallnr: "0151-18857333",
           },
           {
             id: 4,
             bezeichnung: "Betriebsrat",
-            notfallnr: "0123 45678998",
+            notfallnr: "0176-11119277",
           },
           {
             id: 5,
             bezeichnung: "Werkstattrat",
-            notfallnr: "0123 45678998",
+            notfallnr: "0151-18857333",
           }
         ],
         "mitarbeiter":[
       {
         id: 1,
         zuordnungsId: 1,
-        name: "Jakob Jakobsen",
-        nummer: "0123 45678998",
-        mail: "test.mail@mail.com"
+        name: "Antje Kahl",
+        nummer: "+49(461)50306686",
+        mail: "kahl@muerwiker-gruppe.de"
       }, {
         id: 2,
         zuordnungsId: 1,
-        name: "Nico Nicosen",
-        nummer: "0123 45678998",
-        mail: "test.mail@mail.com"
+        name: "Annette Sesemann",
+        nummer: "+49(461)50306640",
+        mail: "sesemann@muerwiker-gruppe.de"
       }, {
         id: 3,
         zuordnungsId: 2,
-        name: "Gerd Gerhardsen",
-        nummer: "0123 45678998",
-        mail: "test.mail@mail.com"
+        name: "Kirsten Bork",
+        nummer: "+49(461)50306672",
+        mail: "bork@muerwiker-gruppe.de"
       }, {
         id: 4,
         zuordnungsId: 2,
-        name: "Jana Janarich",
-        nummer: "0123 45678998",
-        mail: "test.mail@mail.com"
+        name: "Tina Eggert",
+        nummer: "+49(461)50306674",
+        mail: "eggert@muerwiker-gruppe.de"
       }, {
         id: 5,
         zuordnungsId: 3,
-        name: "Jan Jansen",
-        nummer: "0123 45678998",
-        mail: "test.mail@mail.com"
+        name: "Annika Faltin",
+        nummer: "+49(461)50306237",
+        mail: "faltin@muerwiker-gruppe.de"
       }, {
         id: 6,
-        zuordnungsId: 4,
-        name: "Ludger Ludgersen",
-        nummer: "0123 45678998",
-        mail: "test.mail@mail.com"
-      }
+        zuordnungsId: 3,
+        name: "Marc Schramm",
+        nummer: "+49(461)50306331",
+        mail: "schramm@muerwiker-gruppe.de"
+      }, {
+            id: 7,
+            zuordnungsId: 4,
+            name: "Gunter Südel",
+            nummer: "0176-11119277",
+            mail: "betriebsrat-muerwiker@muerwiker-gruppe.de"
+          }, {
+            id: 8,
+            zuordnungsId: 5,
+            name: "Nicholas Endlein",
+            nummer: "+49(461)50306259",
+            mail: "werkstattrat@muerwiker-gruppe.de"
+          }, {
+            id: 9,
+            zuordnungsId: 5,
+            name: "Jana Wiedemeyer",
+            nummer: "49(461)50306732",
+            mail: "wiedemeyer@muerwiker-gruppe.de"
+          }
         ]
       }
     }

@@ -59,30 +59,23 @@ export default {
         "wohneinrichtungen": [
           {
             id: 1,
-            ort: "Flensburg",
-            strasse: "Teststraße",
-            hausnummer: "69",
+            ort: "Niebüll",
+            strasse: "Buchenweg",
+            hausnummer: "",
             foto:""
           },
           {
             id: 2,
-            ort: "Flensburg",
-            strasse: "Nudelweg",
-            hausnummer: "88",
+            ort: "Niebüll",
+            strasse: "Schreberweg",
+            hausnummer: "",
             foto:""
           },
           {
             id: 3,
-            ort: "Niebüll",
-            strasse: "Nordseestraße",
-            hausnummer: "11",
-            foto:""
-          },
-          {
-            id: 4,
-            ort: "ohne Ort",
-            strasse: "Dienststraße",
-            hausnummer: "34",
+            ort: "Flensburg",
+            strasse: "Terassenstraße",
+            hausnummer: "",
             foto:""
           }
         ]
@@ -92,39 +85,39 @@ export default {
           {
             id: 1,
             zuordnungsId: 1,
-            name: "Peter Petersen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Stefan Holst",
+            nummer: "+49(461)50306648",
+            mail: "holst@muerwiker-gruppe.de"
           }, {
             id: 2,
             zuordnungsId: 1,
-            name: "Hans Hansen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Ela Nissen",
+            nummer: "+49(461)50306608",
+            mail: "e.nissen@muerwiker-gruppe.de"
           }, {
             id: 3,
             zuordnungsId: 2,
-            name: "Johann Johannsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Jörg Homberg",
+            nummer: "+49(461)50306292",
+            mail: "homberg@muerwiker-gruppe.de"
           }, {
             id: 4,
             zuordnungsId: 2,
-            name: "Erich Erichsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Frank Brodersen",
+            nummer: "+49(461)50306633",
+            mail: "brodersen@muerwiker-gruppe.de"
           }, {
             id: 5,
             zuordnungsId: 3,
-            name: "Michel Michelsen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            name: "Niklas Neugebauer",
+            nummer: "+49(461)50306556",
+            mail: "neugebauer@muerwiker-gruppe.de"
           }, {
             id: 6,
-            zuordnungsId: 4,
-            name: "Marie Mariechen",
-            nummer: "0123 45678998",
-            mail: "test.mail@mail.com"
+            zuordnungsId: 3,
+            name: "Gerd Bänsch",
+            nummer: "49(461)50306902",
+            mail: "baensch@muerwiker-gruppe.de"
           }
         ]
       }
