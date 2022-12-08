@@ -18,6 +18,8 @@
 
   <div v-if="selectedAbteilung != '' && getMitarbeiter()!=''">
     <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement" style="width: 50%; float: left; margin-left: 8px">
+      <img src="../assets/Avatar.png" alt="Avatar" style="float: left;width: 18%; margin-right: 24px"/>
+
       <p>{{ item.name }}</p>
       <p>
         <img src="../assets/phone.svg" alt="PhoneImage" style="width: 24px;height: 24px" class="negative"/>

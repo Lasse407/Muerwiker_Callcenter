@@ -1,11 +1,14 @@
 <template>
-  <link rel = "stylesheet" type = "text/css" href = "./src/css/Default.css">
-
+  <header-bar/>
+  <admin-table/>
 </template>
 
 <script>
+import HeaderBar from "@/components/HeaderBar.vue";
+import AdminTable from "@/components/AdminTable.vue";
 export default {
-  name: "Administration"
+  name: "Administration",
+  components: {AdminTable, HeaderBar}
 }
 </script>
 

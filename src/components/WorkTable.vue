@@ -26,7 +26,7 @@
               </span>
             </span>
             </p>
-              <p>{{ item.abteilungen }}</p>
+              <p class="abteilung">{{ item.abteilungen }}</p>
           </div>
         </div>
       </div>

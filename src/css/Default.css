@@ -137,10 +137,13 @@ a {
     border-bottom-style: solid;
     border-bottom-color: #F59C00;
     border-bottom-width: 4px;
-
 }
 .blockElement:hover{
     filter:brightness(125%);
+}
+.abteilung{
+    color: lightgrey;
+    font-size:16px ;
 }
 .selected{
     background-color:   #e69100;
