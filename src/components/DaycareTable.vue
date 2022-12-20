@@ -16,6 +16,7 @@
             </span>
       </p>
     </div>
+
   </div>
 
   <span v-if="selectedtafoe!= '' && getMitarbeiter() != '' " class="block" style="width: 48%">
@@ -34,7 +35,14 @@
         </a>
 
     </div>
+        <div class="blockElement">
+      <img src="../assets/alarm-light.svg" alt="Alarm" style="float: left;width: 13%; margin-right: 24px" class="negative"/>
+    <p>Notfall Nummer</p>
+      <p>0152 123456
+      </p>
+    </div>
   </span>
+
 </template>
 
 <script>

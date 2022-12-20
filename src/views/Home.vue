@@ -11,14 +11,27 @@
     </div>
   </div>
   <div class="mainSearch"><img src="../assets/magnify.svg" >  <input class="mainSearch" v-model="search" placeholder="Suche">
-    </div>
+  </div>
+  <!-- <div style="width: 200px">
+    <v-select
+        v-model="selected"
+        :options="contacts"
+        label="Suche" >
+      <template #search="{forename, surname}">
+
+      </template>
+      <template #option="{forename, surname}">
+        <em>{{forename}} {{surname}}</em>
+      </template>
+    </v-select>
+  </div> -->
   <div style=" display: block;justify-content: center">
 
     <div class="mainBox mainBoxHover">
       <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
-          Mitarbeiter für den Bereich "Arbeit"
+          Ansprechpartner für den Bereich "Arbeit"
         </span>
       </span>
 
@@ -47,7 +60,7 @@
             <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
-          Mitarbeiter der Verwaltung
+          Ansprechpartner der Verwaltung
         </span>
       </span>
       <router-link to="/stab">
@@ -60,7 +73,7 @@
             <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
-          Mitarbeiter der Tagesförderstätten
+          Ansprechpartner der Tagesförderstätten
         </span>
       </span>
       <router-link to="/tafo">
@@ -86,8 +99,34 @@
 </template>
 
 <script>
+import {computed} from "vue";
+import axios from "axios";
+
 export default {
-  name: "Home"
+  name: "Home",
+  data() {
+    return {
+      selected: "",
+      contacts: [],
+      search:""
+    }
+  },
+  mounted(){
+      this.getContacts();
+  },
+  methods:{
+    async getContacts() {
+
+      let response = await axios
+          .get(
+              "http://127.0.0.1:8000/api/contacts")
+          .catch(() => {
+            console.log("error getting checklist");
+          });
+      console.log(response.data.contacts);
+      this.contacts = response.data.contacts
+    }
+  }
 }
 </script>
 

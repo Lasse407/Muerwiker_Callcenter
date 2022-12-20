@@ -30,6 +30,12 @@
         {{ item.mail }}
       </a>
     </div>
+    <div class="blockElement block">
+      <img src="../assets/alarm-light.svg" alt="Alarm" style="float: left;width: 13%; margin-right: 24px" class="negative"/>
+      <p>Notfall Nummer</p>
+      <p>0152 123456
+      </p>
+    </div>
 
   </div>
 

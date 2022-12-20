@@ -40,16 +40,18 @@ export default {
     }
   },
   created() {
-    //   this.try();
+       this.try();
   },
   methods:{
-//    async try(){
-//      console.log("CREATED, FETCHING SHIT")
-//      let response = await axios
-//          .get("http://127.0.0.1:8000/contact")
-//      console.log(response.data.length);
-//      console.log(response);
-//    },
+    async try() {
+      let response = await axios
+          .get(
+              "http://127.0.0.1:8000/api/works")
+          .catch(() => {
+            console.log("error getting checklist");
+          });
+      console.log(response);
+    },
     getWork(){
 
     },

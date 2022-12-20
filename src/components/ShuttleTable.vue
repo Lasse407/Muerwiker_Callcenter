@@ -1,5 +1,8 @@
 <template>
-  <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement block" style="width: 90%">
+  <div class="block" style="width: 80%">
+  <img src="@/assets/car-estate.svg" class="blockicon"/>
+
+  <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement block" style="width: 90%;">
     <img src="../assets/Avatar.png" alt="Avatar" style="float: left;width: 18%; margin-right: 24px"/>
     <p>{{ item.name }}</p>
     <p>
@@ -11,7 +14,13 @@
       {{ item.mail }}
     </a>
   </div>
-
+    <div class="blockElement block">
+      <img src="../assets/alarm-light.svg" alt="Alarm" style="float: left;width: 13%; margin-right: 24px" class="negative"/>
+      <p>Notfall Nummer</p>
+      <p>0152 123456
+      </p>
+    </div>
+  </div>
 </template>
 
 <script>

@@ -16,7 +16,7 @@
       <div v-for="(item, index) in getAddresses()" :key="index" >
         <div @click="selectedAddress = item.id" :class="[selectedAddress == item.id ? 'selected' : ''] " class="blockElement">
           <p>
-            {{ item.strasse }} {{ item.hausnummer }}
+            {{ item.street }} {{ item.house_number }}
             <span class="tooltipImg" style="float:right; position: relative;">
               <img src="../assets/camera.svg" alt="MailImage" style="width: 48px;" class="negative"/>
 
@@ -45,16 +45,47 @@
           {{ item.mail }}
         </a>
     </div>
+        <div class="blockElement">
+      <img src="../assets/alarm-light.svg" alt="Alarm" style="float: left;width: 13%; margin-right: 24px" class="negative"/>
+      <p>Notfall Nummer</p>
+      <p>0152 123456
+      </p>
+    </div>
   </span>
+
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "HousingTable",
   data() {
     return {
       selectedCity: "",
       selectedAddress: "",
+      data:[],
+      contacts:[],
+      zuordnung:[
+        {
+          contactID:9,
+          workID:1
+        },
+        {
+          contactID:20,
+          workID:1
+        },
+        {
+          contactID:34,
+          workID:6
+        },
+        {
+          contactID:73,
+          workID:6
+        },
+      ],
+
+
       workData: {
         "wohneinrichtungen": [
           {
@@ -124,19 +155,17 @@ export default {
     }
   },
   mounted() {
-    console.log(this.workData.wohneinrichtungen);
+    this.getData()
+    this.getContacts()
   },
   methods: {
-    write() {
-      console.log("writing -------------------")
-    },
     getCities() {
       var resArr = [];
-      this.workData.wohneinrichtungen.forEach((element) => {
+      this.data.forEach((element) => {
 
-        if (!resArr.includes(element.ort)) {
+        if (!resArr.includes(element.location)) {
 
-          resArr.push(element.ort)
+          resArr.push(element.location)
 
         }
       })
@@ -145,8 +174,8 @@ export default {
     },
     getAddresses() {
       var resArr = [];
-      this.workData.wohneinrichtungen.forEach((element) => {
-        if (element.ort == this.selectedCity) {
+      this.data.forEach((element) => {
+        if (element.location == this.selectedCity) {
           resArr.push(element)
           console.log("pushed element:")
           console.log(element)
@@ -156,15 +185,36 @@ export default {
     },
     getMitarbeiter() {
       var resArr = [];
-      this.contactData.mitarbeiter.forEach((element) => {
-        if (element.zuordnungsId == this.selectedAddress) {
-          resArr.push(element)
-          console.log("pushed element:")
-          console.log(element)
-        }
+
+      var zuordnungFiltered = this.zuordnung.filter(element => element.livingID == this.selectedAddress)
+
+      zuordnungFiltered.forEach((element) => {
+        resArr.push(this.contacts.find((x) => x.id == element.contactID))
       })
-      return resArr;
-    }
+
+      return resArr
+    },
+    async getData(){
+      let response = await axios
+          .get(
+              "http://127.0.0.1:8000/api/livings")
+          .catch(() => {
+            console.log("error getting checklist");
+          });
+      console.log(response.data.livings);
+      this.data = response.data.livings
+    },
+    async getContacts(){
+
+      let response = await axios
+          .get(
+              "http://127.0.0.1:8000/api/contacts")
+          .catch(() => {
+            console.log("error getting checklist");
+          });
+      console.log(response.data.contacts);
+      this.contacts = response.data.contacts
+    },
   }
 }
 </script>

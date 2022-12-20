@@ -16,7 +16,7 @@
       <div >
         <div v-for="(item, index) in getAddresses()" :key="index" >
           <div @click="selectedAddress = item.id" :class="[selectedAddress == item.id ? 'selected' : ''] " class="blockElement">
-            <p>{{ item.strasse }} {{ item.hausnummer }}
+            <p>{{ item.street }} {{ item.house_number }}
               <span class="tooltipImg" style="float:right; position: relative;">
               <img src="../assets/camera.svg" alt="MailImage" style="width: 48px;" class="negative"/>
 
@@ -26,7 +26,7 @@
               </span>
             </span>
             </p>
-              <p class="abteilung">{{ item.abteilungen }}</p>
+              <p v-if="item.department != 'none'" class="abteilung">{{ item.department }}</p>
           </div>
         </div>
       </div>
@@ -36,20 +36,31 @@
     <img src="../assets/account.svg" alt="Account" class="blockicon"/>
     <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement">
       <img src="../assets/Avatar.png" alt="Avatar" style="float: left;width: 18%; margin-right: 24px"/>
-    <p>{{ item.name }}</p>
+    <p>{{ item.forename }} {{item.surname}}</p>
       <p>
         <img src="../assets/phone.svg" alt="PhoneImage" style="width: 24px;height: 24px" class="negative"/>
-          {{ item.nummer }}
+          {{ item.phone_number }}
       </p>
-        <a class="mailLink" href="mailto:{{item.mail}}?subject=Anruf&body=Guten Tag, es wurde für Sie angerufen">
+        <a class="mailLink" href="mailto:{{item.email}}?subject=Anruf&body=Guten Tag, es wurde für Sie angerufen">
           <img src="../assets/email-outline.svg" alt="MailImage" style="width: 24px;height: 24px" class="negative"/>
-          {{ item.mail }}
+          {{ item.email }}
         </a>
     </div>
+
+
+    <div class="blockElement">
+      <img src="../assets/alarm-light.svg" alt="Alarm" style="float: left;width: 13%; margin-right: 24px" class="negative"/>
+    <p>Notfall Nummer</p>
+      <p>0152 123456
+      </p>
+    </div>
+
   </span>
 </template>
 
 <script>
+
+import axios from "axios";
 
 export default {
   name: "WorkTable",
@@ -57,107 +68,70 @@ export default {
     return {
       selectedCity: "",
       selectedAddress: "",
-      workData: {
-        "arbeitsstaetten": [
-          {
-            id: 1,
-            ort: "Flensburg",
-            strasse: "Treeneweg",
-            hausnummer: "",
-            abteilungen: "Besen und Bürsten, LebensArt, Verpackung"
-          },
-          {
-            id: 2,
-            ort: "Flensburg",
-            strasse: "Gewerbegrund",
-            hausnummer: "",
-            abteilungen: "Metall, Schlosserei, Verpackung, Montage"
-          },
-          {
-            id: 3,
-            ort: "Flensburg",
-            strasse: "Raiffeisenstraße",
-            hausnummer: "",
-            abteilungen: "Werkstatt Garten, RabenHolz, Kaminholz, Gartenbau"
-          },
-          {
-            id: 4,
-            ort: "ohne Ort",
-            strasse: "Bildung und Begleitung",
-            hausnummer: "",
-            abteilungen: "Berufliche Bildung, Schule, Begleitung, Begleitender Dienst, Arbeitsamt, Arbeitsagentur, Ausbildung"
-          }
-        ]
-      },
-      contactData: {
-        "mitarbeiter": [
-          {
-            id: 1,
-            zuordnungsId: 1,
-            name: "Sandra Bier",
-            nummer: "+49(461)50306249",
-            mail: "bier@muerwiker-gruppe.de"
-          }, {
-            id: 2,
-            zuordnungsId: 1,
-            name: "Jan Euhus",
-            nummer: "+49(461)50306714",
-            mail: "euhus@muerwiker-gruppe.de"
-          }, {
-            id: 3,
-            zuordnungsId: 2,
-            name: "Jörg Köster",
-            nummer: "+49(461)50306771",
-            mail: "köster@muerwiker-gruppe.de"
-          }, {
-            id: 4,
-            zuordnungsId: 2,
-            name: "Kirsten Feddersen",
-            nummer: "+49(461)50306257",
-            mail: "k.feddersen@muerwiker-gruppe.de"
-          }, {
-            id: 5,
-            zuordnungsId: 3,
-            name: "Andreas Andresen",
-            nummer: "0176-11119271",
-            mail: "a.andresen@muerwiker-gruppe.de"
-          }, {
-            id: 6,
-            zuordnungsId: 3,
-            name: "Stefan Ingwertsen",
-            nummer: "0176-11119262",
-            mail: "ingwertsen@muerwiker-gruppe.de"
-          }, {
-            id: 7,
-            zuordnungsId: 4,
-            name: "Ulrike Brandt",
-            nummer: "0176-11119252",
-            mail: "u.brandt@muerwiker-gruppe.de"
-          }, {
-            id: 8,
-            zuordnungsId: 4,
-            name: "Timo Petersen",
-            nummer: "49(461)50306303",
-            mail: "timo.petersen@muerwiker-gruppe.de"
-          }
-        ]
-      }
+      data:[],
+      contacts:[],
+      zuordnung:[
+        {
+          contactID:9,
+          workID:1
+        },
+        {
+          contactID:20,
+          workID:1
+        },
+        {
+          contactID:34,
+          workID:6
+        },
+        {
+          contactID:73,
+          workID:6
+        },
+        {
+          contactID:4,
+          workID:2
+        },
+        {
+          contactID:30,
+          workID:2
+        },
+      ]
     }
   },
   mounted() {
-    console.log(this.workData.arbeitsstaetten);
+    this.getData()
+    this.getContacts()
   },
   methods: {
-    write() {
-      console.log("writing -------------------")
+    async getData(){
+      let response = await axios
+          .get(
+              "http://127.0.0.1:8000/api/works")
+          .catch(() => {
+            console.log("error getting checklist");
+          });
+      console.log(response.data.works);
+      this.data = response.data.works
+    },
+    async getContacts(){
+
+      let response = await axios
+          .get(
+              "http://127.0.0.1:8000/api/contacts")
+          .catch(() => {
+            console.log("error getting checklist");
+          });
+      console.log(response.data.contacts);
+      this.contacts = response.data.contacts
     },
     getCities() {
       var resArr = [];
-      this.workData.arbeitsstaetten.forEach((element) => {
+      this.data.forEach((element) => {
 
-        if (!resArr.includes(element.ort)) {
+        if (!resArr.includes(element.location)) {
 
-          resArr.push(element.ort)
+          resArr.push(element.location
+          )
 
         }
       })
@@ -166,8 +140,8 @@ export default {
     },
     getAddresses() {
       var resArr = [];
-      this.workData.arbeitsstaetten.forEach((element) => {
-        if (element.ort == this.selectedCity) {
+      this.data.forEach((element) => {
+        if (element.location == this.selectedCity) {
           resArr.push(element)
           console.log("pushed element:")
           console.log(element)
@@ -177,16 +151,15 @@ export default {
     },
     getMitarbeiter() {
       var resArr = [];
-      this.contactData.mitarbeiter.forEach((element) => {
-        if (element.zuordnungsId == this.selectedAddress) {
-          resArr.push(element)
-          console.log("pushed element:")
-          console.log(element)
-        }
-      })
-      return resArr;
-    },
 
+      var zuordnungFiltered = this.zuordnung.filter(element => element.workID == this.selectedAddress)
+
+      zuordnungFiltered.forEach((element) => {
+        resArr.push(this.contacts.find((x) => x.id == element.contactID))
+      })
+
+      return resArr
+    },
   }
 }
 </script>
