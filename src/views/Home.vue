@@ -46,7 +46,7 @@
       <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
-          Mitarbeiter für Wohnen und Häuser
+          Ansprechpartner für den Bereich Wohnen und Häuser
         </span>
       </span>
 
@@ -65,7 +65,7 @@
       </span>
       <router-link to="/stab">
         <img src="@/assets/family-tree.svg" class="mainImg"/>
-        <p class="centered">Stab</p>
+        <p class="centered">Verwaltung</p>
       </router-link>
     </div>
 
@@ -86,7 +86,7 @@
             <span class="tooltip" style="float:right; position: relative; left: 70%">
           ?
         <span class="tooltiptext">
-          Mitarbeiter für den Fahrdienst
+          Ansprechpartner des Fahrdiensts
         </span>
       </span>
       <router-link to="/fahrdienst">
