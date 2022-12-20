@@ -16,7 +16,7 @@
       <div v-for="(item, index) in getAddresses()" :key="index" >
         <div @click="selectedAddress = item.id" :class="[selectedAddress == item.id ? 'selected' : ''] " class="blockElement">
           <p>
-            {{ item.street }} {{ item.house_number }}
+            {{ item.street }}
             <span class="tooltipImg" style="float:right; position: relative;">
               <img src="../assets/camera.svg" alt="MailImage" style="width: 48px;" class="negative"/>
 
@@ -35,14 +35,14 @@
 
     <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement">
       <img src="../assets/Avatar.png" alt="Avatar" style="float: left;width: 18%; margin-right: 24px"/>
-    <p>{{ item.name }}</p>
+    <p>{{ item.forename }} {{item.surname}}</p>
       <p>
         <img src="../assets/phone.svg" alt="PhoneImage" style="width: 24px;height: 24px" class="negative"/>
-          {{ item.nummer }}
+          {{ item.phone_number }}
       </p>
-        <a class="mailLink" href="mailto:{{item.mail}}?subject=Anruf&body=Guten Tag, es wurde für Sie angerufen">
+        <a class="mailLink" href="mailto:{{item.email}}?subject=Anruf&body=Guten Tag, es wurde für Sie angerufen">
           <img src="../assets/email-outline.svg" alt="MailImage" style="width: 24px;height: 24px" class="negative"/>
-          {{ item.mail }}
+          {{ item.email }}
         </a>
     </div>
         <div class="blockElement">
@@ -68,90 +68,30 @@ export default {
       contacts:[],
       zuordnung:[
         {
-          contactID:9,
-          workID:1
+          contactID:26,
+          livingID:11
         },
         {
-          contactID:20,
-          workID:1
+          contactID:39,
+          livingID:11
         },
         {
-          contactID:34,
-          workID:6
+          contactID:27,
+          livingID:12
         },
         {
-          contactID:73,
-          workID:6
+          contactID:12,
+          livingID:12
+        },
+        {
+          contactID:38,
+          livingID:1
+        },
+        {
+          contactID:5,
+          livingID:1
         },
       ],
-
-
-      workData: {
-        "wohneinrichtungen": [
-          {
-            id: 1,
-            ort: "Niebüll",
-            strasse: "Buchenweg",
-            hausnummer: "",
-            foto:""
-          },
-          {
-            id: 2,
-            ort: "Niebüll",
-            strasse: "Schreberweg",
-            hausnummer: "",
-            foto:""
-          },
-          {
-            id: 3,
-            ort: "Flensburg",
-            strasse: "Terassenstraße",
-            hausnummer: "",
-            foto:""
-          }
-        ]
-      },
-      contactData: {
-        "mitarbeiter": [
-          {
-            id: 1,
-            zuordnungsId: 1,
-            name: "Stefan Holst",
-            nummer: "+49(461)50306648",
-            mail: "holst@muerwiker-gruppe.de"
-          }, {
-            id: 2,
-            zuordnungsId: 1,
-            name: "Ela Nissen",
-            nummer: "+49(461)50306608",
-            mail: "e.nissen@muerwiker-gruppe.de"
-          }, {
-            id: 3,
-            zuordnungsId: 2,
-            name: "Jörg Homberg",
-            nummer: "+49(461)50306292",
-            mail: "homberg@muerwiker-gruppe.de"
-          }, {
-            id: 4,
-            zuordnungsId: 2,
-            name: "Frank Brodersen",
-            nummer: "+49(461)50306633",
-            mail: "brodersen@muerwiker-gruppe.de"
-          }, {
-            id: 5,
-            zuordnungsId: 3,
-            name: "Niklas Neugebauer",
-            nummer: "+49(461)50306556",
-            mail: "neugebauer@muerwiker-gruppe.de"
-          }, {
-            id: 6,
-            zuordnungsId: 3,
-            name: "Gerd Bänsch",
-            nummer: "49(461)50306902",
-            mail: "baensch@muerwiker-gruppe.de"
-          }
-        ]
-      }
     }
   },
   mounted() {
