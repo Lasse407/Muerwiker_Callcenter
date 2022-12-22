@@ -4,6 +4,8 @@
     <img src="../assets/city-variant.svg" alt="Stadt" class="blockicon"/>
     <h1 class="blockHead">Ort</h1>
     <div v-for="(item,index) in getCities()" :key="index"  >
+      <!-- listing of the cities -->
+
       <p @click="selectedCity = item, selectedAddress = null" :class="[selectedCity == item ? 'selected' : ''] " class="blockElement">
         {{ item }}</p>
     </div>
@@ -15,6 +17,8 @@
     <h1 class="blockHead">Adresse</h1>
       <div >
         <div v-for="(item, index) in getAddresses()" :key="index" >
+          <!-- listing of addresses in selected city -->
+
           <div @click="selectedAddress = item.id" :class="[selectedAddress == item.id ? 'selected' : ''] " class="blockElement">
             <p>{{ item.street }} {{ item.house_number }}
               <span class="tooltipImg" style="float:right; position: relative;">
@@ -32,6 +36,7 @@
       </div>
   </div>
   <span v-if="selectedAddress!= '' && getMitarbeiter() != '' " class="block" style="width: 48%">
+          <!-- listing of employees at selected object -->
 
     <img src="../assets/account.svg" alt="Account" class="blockicon"/>
     <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement">
@@ -71,6 +76,8 @@ export default {
       data:[],
       contacts:[],
       zuordnung:[
+        // zurodnungen exists as a replacement for our association table
+
         {
           contactID:9,
           workID:1
@@ -99,11 +106,14 @@ export default {
     }
   },
   mounted() {
+    // Call the GET methods when the component is mounted
+
     this.getData()
     this.getContacts()
   },
   methods: {
     async getData(){
+      // getting all work objects
       let response = await axios
           .get(
               "http://127.0.0.1:8000/api/works")
@@ -114,6 +124,7 @@ export default {
       this.data = response.data.works
     },
     async getContacts(){
+      // getting all employees
 
       let response = await axios
           .get(
@@ -150,6 +161,7 @@ export default {
       return resArr;
     },
     getMitarbeiter() {
+
       var resArr = [];
 
       var zuordnungFiltered = this.zuordnung.filter(element => element.workID == this.selectedAddress)

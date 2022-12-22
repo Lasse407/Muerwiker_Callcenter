@@ -4,6 +4,7 @@
     <img src="../assets/city-variant.svg" alt="Stadt" class="blockicon"/>
     <h1 class="blockHead">Ort</h1>
     <div v-for="(item,index) in getCities()" :key="index" >
+      <!-- listing of the cities -->
       <p @click="selectedCity = item, selectedAddress = null" class="blockElement" :class="[selectedCity == item ? 'selected' : '']">
         {{ item }}</p>
     </div>
@@ -14,6 +15,8 @@
     <h1 class="blockHead">Adresse</h1>
     <div >
       <div v-for="(item, index) in getAddresses()" :key="index" >
+        <!-- listing of addresses in selected city -->
+
         <div @click="selectedAddress = item.id" :class="[selectedAddress == item.id ? 'selected' : ''] " class="blockElement">
           <p>
             {{ item.street }}
@@ -67,6 +70,7 @@ export default {
       data:[],
       contacts:[],
       zuordnung:[
+          // zurodnungen exists as a replacement for our association table
         {
           contactID:26,
           livingID:11
@@ -95,11 +99,13 @@ export default {
     }
   },
   mounted() {
+    // Call the GET methods when the component is mounted
     this.getData()
     this.getContacts()
   },
   methods: {
     getCities() {
+      // filtering every City from objects, not adding duplicates
       var resArr = [];
       this.data.forEach((element) => {
 
@@ -113,6 +119,7 @@ export default {
       return resArr;
     },
     getAddresses() {
+      //filtering addresses where city equals selected city
       var resArr = [];
       this.data.forEach((element) => {
         if (element.location == this.selectedCity) {
@@ -124,6 +131,7 @@ export default {
       return resArr;
     },
     getMitarbeiter() {
+      // filtering the employees who work for the object at selected address
       var resArr = [];
 
       var zuordnungFiltered = this.zuordnung.filter(element => element.livingID == this.selectedAddress)
@@ -135,6 +143,7 @@ export default {
       return resArr
     },
     async getData(){
+      //getting "livings" data from our API
       let response = await axios
           .get(
               "http://127.0.0.1:8000/api/livings")
@@ -145,7 +154,7 @@ export default {
       this.data = response.data.livings
     },
     async getContacts(){
-
+  // getting all employees
       let response = await axios
           .get(
               "http://127.0.0.1:8000/api/contacts")

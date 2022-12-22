@@ -2,6 +2,8 @@
 <template>
   <div v-if="selectedAbteilung == ''" style=" display: block;justify-content: center">
     <div v-for="(item, index) in data" >
+      <!-- listing of the areas of management -->
+
       <div class="mainBox blockElement" @click="selectedAbteilung = item.id" >
         <p >{{item.division}}</p>
       </div>
@@ -9,7 +11,8 @@
   </div>
 
   <div v-if="selectedAbteilung != ''" class="block" >
-    <div v-for="(item, index) in data.admins" >
+    <div v-for="(item, index) in data" >
+      <!-- listing of areas of management on the left side -->
       <div >
         <p @click="selectedAbteilung = item.id" class="blockElement" :class="[selectedAbteilung == item.id ? 'selected' : ''] ">{{item.division}}</p>
       </div>
@@ -18,6 +21,8 @@
 
   <div v-if="selectedAbteilung != '' && getMitarbeiter()!=''">
     <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement" style="width: 50%; float: left; margin-left: 8px">
+      <!-- listing of employees at selected object -->
+
       <img src="../assets/Avatar.png" alt="Avatar" style="float: left;width: 18%; margin-right: 24px"/>
 
       <p>{{ item.forename }} {{item.surname}}</p>
@@ -53,6 +58,8 @@ export default {
       contacts:[],
 
       zuordnung:[
+        // zurodnungen exists as a replacement for our association table
+
         {
           contactID:30,
           divisionID:1
@@ -91,95 +98,11 @@ export default {
         },
 
       ],
-      datas:{
-        "Abteilungen":[
-          {
-            id: 1,
-            bezeichnung: "Personal",
-            notfallnr: "0151-18857333",
-          },
-          {
-            id: 2,
-            bezeichnung: "Geschäftsleitung",
-            notfallnr: "0151-18857333",
-          },
-          {
-            id: 3,
-            bezeichnung: "Finanzen",
-            notfallnr: "0151-18857333",
-          },
-          {
-            id: 4,
-            bezeichnung: "Betriebsrat",
-            notfallnr: "0176-11119277",
-          },
-          {
-            id: 5,
-            bezeichnung: "Werkstattrat",
-            notfallnr: "0151-18857333",
-          }
-        ],
-        "mitarbeiter":[
-      {
-        id: 1,
-        zuordnungsId: 1,
-        name: "Antje Kahl",
-        nummer: "+49(461)50306686",
-        mail: "kahl@muerwiker-gruppe.de"
-      }, {
-        id: 2,
-        zuordnungsId: 1,
-        name: "Annette Sesemann",
-        nummer: "+49(461)50306640",
-        mail: "sesemann@muerwiker-gruppe.de"
-      }, {
-        id: 3,
-        zuordnungsId: 2,
-        name: "Kirsten Bork",
-        nummer: "+49(461)50306672",
-        mail: "bork@muerwiker-gruppe.de"
-      }, {
-        id: 4,
-        zuordnungsId: 2,
-        name: "Tina Eggert",
-        nummer: "+49(461)50306674",
-        mail: "eggert@muerwiker-gruppe.de"
-      }, {
-        id: 5,
-        zuordnungsId: 3,
-        name: "Annika Faltin",
-        nummer: "+49(461)50306237",
-        mail: "faltin@muerwiker-gruppe.de"
-      }, {
-        id: 6,
-        zuordnungsId: 3,
-        name: "Marc Schramm",
-        nummer: "+49(461)50306331",
-        mail: "schramm@muerwiker-gruppe.de"
-      }, {
-            id: 7,
-            zuordnungsId: 4,
-            name: "Gunter Südel",
-            nummer: "0176-11119277",
-            mail: "betriebsrat-muerwiker@muerwiker-gruppe.de"
-          }, {
-            id: 8,
-            zuordnungsId: 5,
-            name: "Nicholas Endlein",
-            nummer: "+49(461)50306259",
-            mail: "werkstattrat@muerwiker-gruppe.de"
-          }, {
-            id: 9,
-            zuordnungsId: 5,
-            name: "Jana Wiedemeyer",
-            nummer: "49(461)50306732",
-            mail: "wiedemeyer@muerwiker-gruppe.de"
-          }
-        ]
-      }
     }
   },
   mounted() {
+    // Call the GET methods when the component is mounted
+
     this.getData()
     this.getContacts()
   },
@@ -196,6 +119,7 @@ export default {
       return resArr
     },
     async getData(){
+      // getting all Management objects
       let response = await axios
           .get(
               "http://127.0.0.1:8000/api/admins")
@@ -206,7 +130,7 @@ export default {
       this.data = response.data.admins
     },
     async getContacts(){
-
+      // getting all employees
       let response = await axios
           .get(
               "http://127.0.0.1:8000/api/contacts")

@@ -29,13 +29,14 @@ export default {
   data(){
     return{
       selectedAbteilung:"",
+      //object where all the info about the departments should be saved to handle data
       data:{
-        "work":[],
-        "living":[],
-        "drivingservice":[],
-        "carecenter":[],
-        "administration":[],
-        "contacts":[]
+        work:[],
+        living:[],
+        drivingservice:[],
+        carecenter:[],
+        administration:[],
+        contacts:[]
       }
     }
   },
@@ -43,15 +44,6 @@ export default {
        this.try();
   },
   methods:{
-    async try() {
-      let response = await axios
-          .get(
-              "http://127.0.0.1:8000/api/works")
-          .catch(() => {
-            console.log("error getting checklist");
-          });
-      console.log(response);
-    },
     getWork(){
 
     },

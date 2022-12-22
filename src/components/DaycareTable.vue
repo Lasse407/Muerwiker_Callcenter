@@ -3,9 +3,11 @@
     <img src="../assets/hand-heart-outline.svg" alt="Tafö" class="blockicon"/>
     <img src="../assets/routes.svg" alt="Wegweiser" class="blockicon"/>
     <h1 class="blockHead">TaFö</h1>
-    <div v-for="(item,index) in getTafoe()" :key="index"  >
-      <p @click="selectedtafoe = item" :class="[selectedtafoe == item ? 'selected' : ''] " class="blockElement">
-        {{ item.strasse }}
+    <div v-for="(item,index) in data" :key="index"  >
+      <!-- listing of the daycare locations -->
+
+      <p @click="selectedtafoe = item.id" :class="[selectedtafoe == item.id ? 'selected' : ''] " class="blockElement">
+        {{ item.street }}
         <span class="tooltipImg" style="float:right; position: relative;">
               <img src="../assets/camera.svg" alt="MailImage" style="width: 48px;" class="negative"/>
 
@@ -14,7 +16,9 @@
 
               </span>
             </span>
+        <p v-if="item.location != 'none'" class="abteilung">{{ item.location }}</p>
       </p>
+
     </div>
 
   </div>
@@ -23,15 +27,17 @@
 
     <img src="../assets/account.svg" alt="Account" class="blockicon"/>
     <div v-for="(item, index) in getMitarbeiter()" :key="index" class="blockElement">
+                <!-- listing of employees at selected object -->
+
       <img src="../assets/Avatar.png" alt="Avatar" style="float: left;width: 18%; margin-right: 24px"/>
-    <p>{{ item.name }}</p>
+    <p>{{ item.forename }} {{ item.surname }}</p>
       <p>
         <img src="../assets/phone.svg" alt="PhoneImage" style="width: 24px;height: 24px;" class="negative"/>
-          {{ item.nummer }}
+          {{ item.phone_number }}
       </p>
         <a class="mailLink" href="mailto:{{item.mail}}?subject=Anruf&body=Guten Tag, es wurde für Sie angerufen">
           <img src="../assets/email-outline.svg" alt="MailImage" style="width: 24px;height: 24px" class="negative"/>
-          {{ item.mail }}
+          {{ item.email }}
         </a>
 
     </div>
@@ -46,67 +52,70 @@
 </template>
 
 <script>
+import axios from "axios";
+
 export default {
   name: "DaycareTable",
   data() {
     return {
+      data:[],
+      contacts:[],
       selectedtafoe: "",
-      tafoeData: {
-        "tagesforderstaetten": [
-          {
-            id: 1,
-            strasse: "Raiffeiseinstraße",
-          },
-          {
-            id: 2,
-            strasse: "Munkbrarup",
-          }
-        ]
-      },
-      contactData: {
-        "mitarbeiter": [
-          {
-            id: 1,
-            zuordnungsId: 1,
-            name: "Sylvia Bunn",
-            nummer: "49(176)11119272",
-            mail: "bunn@muerwiker-grupp.de"
-          }, {
-            id: 2,
-            zuordnungsId: 2,
-            name: "Sylvia Bunn",
-            nummer: "49(176)11119272",
-            mail: "bunn@muerwiker-grupp.de"
-          }
-        ]
-      }
+      zuordnung:[
+        // zurodnungen exists as a replacement for our association table
+
+        {
+          contactID:13,
+          daycareID:1
+        },
+        {
+          contactID:13,
+          daycareID:2
+        },
+      ],
     }
   },
   mounted() {
+    // Call the GET methods when the component is mounted
+
+    this.getData()
+    this.getContacts()
   },
   methods: {
-    write() {
-      console.log("writing -------------------")
-    },
-    getTafoe() {
+    getMitarbeiter(){
       var resArr = [];
-      this.tafoeData.tagesforderstaetten.forEach((element) => {
-          resArr.push(element)
-          console.log("pushed element:")
-          console.log(element)
+
+      var zuordnungFiltered = this.zuordnung.filter(element => element.daycareID == this.selectedtafoe)
+
+      zuordnungFiltered.forEach((element) => {
+        resArr.push(this.contacts.find((x) => x.id == element.contactID))
       })
-      return resArr;
+
+      return resArr
     },
-    getMitarbeiter() {
-      var resArr = [];
-      this.contactData.mitarbeiter.forEach((element) => {
-        if (element.zuordnungsId == this.selectedtafoe.id) {
-          resArr.push(element)
-          console.log("pushed element:")
-          console.log(element)
-        }
-      })
-      return resArr;
+
+    async getData(){
+      //getting all care center objects
+      let response = await axios
+          .get(
+              "http://127.0.0.1:8000/api/care-centers")
+          .catch(() => {
+            console.log("error getting checklist");
+          });
+      console.log(response.data.careCenters);
+      this.data = response.data.careCenters
+    },
+    async getContacts(){
+      // getting all employees
+
+      let response = await axios
+          .get(
+              "http://127.0.0.1:8000/api/contacts")
+          .catch(() => {
+            console.log("error getting checklist");
+          });
+      console.log(response.data.contacts);
+      this.contacts = response.data.contacts
     },
 
   }

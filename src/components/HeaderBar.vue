@@ -1,4 +1,5 @@
 <template>
+  <!-- header bar to add above every page -->
   <link rel = "stylesheet" type = "text/css" href = "./src/css/Default.css">
   <div class="topBar">
     <div class="col--1-of-3">

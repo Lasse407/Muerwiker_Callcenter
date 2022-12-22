@@ -12,6 +12,7 @@
   </div>
   <div class="mainSearch"><img src="../assets/magnify.svg" >  <input class="mainSearch" v-model="search" placeholder="Suche">
   </div>
+  <!-- tryout for search function, will stay here for possible further implementation -->
   <!-- <div style="width: 200px">
     <v-select
         v-model="selected"
@@ -25,7 +26,11 @@
       </template>
     </v-select>
   </div> -->
+
+
+
   <div style=" display: block;justify-content: center">
+    <!-- Here the fields to select the department are listed -->
 
     <div class="mainBox mainBoxHover">
       <span class="tooltip" style="float:right; position: relative; left: 70%">
@@ -115,8 +120,9 @@ export default {
       this.getContacts();
   },
   methods:{
-    async getContacts() {
 
+    async getContacts() {
+  // planned to use for the search function which is not implemented
       let response = await axios
           .get(
               "http://127.0.0.1:8000/api/contacts")
